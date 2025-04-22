@@ -1,4 +1,4 @@
-module github.com/karateJB/epoch
+module github.com/karatejb/epoch
 
 go 1.21.5
 
