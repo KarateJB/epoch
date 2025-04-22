@@ -4,23 +4,23 @@ The `epoch` package provides utility functions to convert timestamps into UTC da
 
 ## Functions
 
-### `ConvertSecondsToUTC(seconds int64) string`
+### `ConverSecondsToUtc(seconds int64) string`
 Converts a timestamp in seconds since the Unix epoch to a UTC date-time string in ISO 8601 format.
 
 **Example:**
 ```go
 seconds := int64(1633072800)
-result := ConvertSecondsToUTC(seconds)
+result := ConverSecondsToUtc(seconds)
 // result: "2021-10-01T00:00:00Z"
 ```
 
-### `ConvertMicrosecondsToUTC(microseconds int64) string`
+### `ConvertMicrosecondsToUtc(microseconds int64) string`
 Converts a timestamp in microseconds since the Unix epoch to a UTC date-time string in ISO 8601 format with microsecond precision.
 
 **Example:**
 ```go
 microseconds := int64(1633072800123456)
-result := ConvertMicrosecondsToUTC(microseconds)
+result := ConvertMicrosecondsToUtc(microseconds)
 // result: "2021-10-01T00:00:00.123456Z"
 ```
 
