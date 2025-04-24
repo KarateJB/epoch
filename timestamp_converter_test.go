@@ -4,44 +4,44 @@ import (
 	"testing"
 )
 
-func TestConvertSecondsToUtc(t *testing.T) {
+func TestConvertEpochSecToUtc(t *testing.T) {
 	seconds := int64(1633072803) // Example timestamp in seconds
 	expected := "2021-10-01T07:20:03Z"
-	result := ConverSecondsToUtc(seconds)
+	result := ConvertEpochSecToUtc(seconds)
 	if result != expected {
-		t.Errorf("ConverSecondsToUtc(%d) = %s; want %s", seconds, result, expected)
+		t.Errorf("ConvertEpochSecToUtc(%d) = %s; want %s", seconds, result, expected)
 	}
 }
 
-func TestConvertMicrosecondsToUtc(t *testing.T) {
+func TestConvertEpochMsecToUtc(t *testing.T) {
 	microseconds := int64(1633072800123456) // Example timestamp in microseconds
 	expected := "2021-10-01T07:20:00.123456Z"
-	result := ConvertMicrosecondsToUtc(microseconds)
+	result := ConvertEpochMsecToUtc(microseconds)
 	if result != expected {
-		t.Errorf("ConvertMicrosecondsToUtc(%d) = %s; want %s", microseconds, result, expected)
+		t.Errorf("ConvertEpochMsecToUtc(%d) = %s; want %s", microseconds, result, expected)
 	}
 }
 
-func TestConvertUtcToEpochMilliseconds(t *testing.T) {
+func TestConvertUtcToEpochMsec(t *testing.T) {
 	utc := "2021-10-01T07:20:00.123Z" // Example UTC datetime string
 	expected := int64(1633072800123)  // Expected epoch time in milliseconds
-	result, err := ConvertUtcToEpoch(utc, true)
+	result, err := ConvertUtcToEpochMsec(utc)
 	if err != nil {
-		t.Errorf("ConvertUtcToEpoch(%s, true) returned error: %v", utc, err)
+		t.Errorf("ConvertUtcToEpochMsec(%s) returned error: %v", utc, err)
 	}
 	if result != expected {
-		t.Errorf("ConvertUtcToEpoch(%s, true) = %d; want %d", utc, result, expected)
+		t.Errorf("ConvertUtcToEpochMsec(%s) = %d; want %d", utc, result, expected)
 	}
 }
 
-func TestConvertUtcToEpochSeconds(t *testing.T) {
+func TestConvertUtcToEpochSec(t *testing.T) {
 	utc := "2021-10-01T07:20:03Z" // Example UTC datetime string
 	expected := int64(1633072803) // Expected epoch time in seconds
-	result, err := ConvertUtcToEpoch(utc, false)
+	result, err := ConvertUtcToEpochSec(utc)
 	if err != nil {
-		t.Errorf("ConvertUtcToEpoch(%s, false) returned error: %v", utc, err)
+		t.Errorf("ConvertUtcToEpochSec(%s) returned error: %v", utc, err)
 	}
 	if result != expected {
-		t.Errorf("ConvertUtcToEpoch(%s, false) = %d; want %d", utc, result, expected)
+		t.Errorf("ConvertUtcToEpochSec(%s) = %d; want %d", utc, result, expected)
 	}
 }
